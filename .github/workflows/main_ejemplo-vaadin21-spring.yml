@@ -22,7 +22,7 @@ jobs:
           java-version: '11'
 
       - name: Build with Maven
-        run: mvn -Pproduction -DskipTests clean package
+        run: mvn clean install
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
@@ -49,5 +49,5 @@ jobs:
         with:
           app-name: 'ejemplo-vaadin21-spring'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_9AF0151CD3C242DC84931E7D9C822101 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_68BEE9A995834AE4A79BF337372A8CB8 }}
           package: '*.jar'
