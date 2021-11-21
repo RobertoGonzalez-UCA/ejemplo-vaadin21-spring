@@ -104,7 +104,7 @@
 		</dependency>
 
 
-		
+
 
 
 		<dependency>
@@ -150,7 +150,7 @@
 			</exclusions>
 		</dependency>
 
-<dependency>
+		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
 			<scope>test</scope>
@@ -176,15 +176,15 @@
 			<version>${cucumber.version}</version>
 			<scope>test</scope>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>io.cucumber</groupId>
 			<artifactId>cucumber-junit</artifactId>
 			<version>${cucumber.version}</version>
 			<scope>test</scope>
 		</dependency>
-		
-		
+
+
 
 	</dependencies>
 
@@ -223,6 +223,11 @@
 		<profile>
 			<!-- Production mode is activated using -Pproduction -->
 			<id>production</id>
+			<!-- Spring profile-->
+			<properties>
+				<spring.profiles.active>production</spring.profiles.active>
+			</properties>
+
 			<build>
 				<plugins>
 					<plugin>
