@@ -223,10 +223,25 @@
 		<profile>
 			<!-- Production mode is activated using -Pproduction -->
 			<id>production</id>
-			<!-- Spring profile-->
+
+			<!-- IRR: Spring profile -->
 			<properties>
 				<spring.profiles.active>production</spring.profiles.active>
 			</properties>
+
+			<!-- IRR: exclude devsever -->
+			<dependencies>
+				<dependency>
+					<groupId>com.vaadin</groupId>
+					<artifactId>vaadin</artifactId>
+					<exclusions>
+						<exclusion>
+							<groupId>com.vaadin</groupId>
+							<artifactId>vaadin-dev-server</artifactId>
+						</exclusion>
+					</exclusions>
+				</dependency>
+			</dependencies>
 
 			<build>
 				<plugins>
