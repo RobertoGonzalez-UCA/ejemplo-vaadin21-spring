@@ -11,7 +11,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
       - uses: actions/checkout@v2
@@ -22,7 +22,7 @@ jobs:
           java-version: '11'
 
       - name: Build with Maven
-        run: mvn -Pproduction -DskipTests clean install
+        run: mvn clean install
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
@@ -31,12 +31,12 @@ jobs:
           path: '${{ github.workspace }}/target/*.jar'
 
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     needs: build
     environment:
       name: 'Production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
-    
+
     steps:
       - name: Download artifact from build job
         uses: actions/download-artifact@v2
@@ -49,5 +49,5 @@ jobs:
         with:
           app-name: 'ejemplo-vaadin21-spring'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_74F3AE917071469BA67EA63A0BD4364C }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_F47FAF908ECE4149AC7C52C9301F9F20 }}
           package: '*.jar'
