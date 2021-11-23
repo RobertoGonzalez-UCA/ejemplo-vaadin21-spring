@@ -8,8 +8,10 @@ import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 
+import es.uca.iw.views.MainLayout;
+
 @PageTitle("Activate User")
-@Route(value = "useractivation")
+@Route(value = "useractivation", layout = MainLayout.class)
 public class UserView extends HorizontalLayout {
 
 	private static final long serialVersionUID = 851217309689685413L;
