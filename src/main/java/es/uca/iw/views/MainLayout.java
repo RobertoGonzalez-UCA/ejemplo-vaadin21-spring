@@ -118,7 +118,7 @@ public class MainLayout extends AppLayout {
 
                 new MenuItemInfo("Master-Detail", "la la-columns", MasterDetailView.class), //
 
-                new MenuItemInfo("User Activation", "la la-file", UserView.class) //
+                new MenuItemInfo("User Activation", "la la-globe", UserView.class) //
 
         };
         List<RouterLink> links = new ArrayList<>();
