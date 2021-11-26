@@ -2,42 +2,47 @@ package es.uca.iw.views.masterdetail;
 
 import java.util.Optional;
 
-import es.uca.iw.data.entity.SamplePerson;
-import es.uca.iw.data.service.SamplePersonService;
+import javax.annotation.security.PermitAll;
+import javax.annotation.security.RolesAllowed;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.HasStyle;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
+import com.vaadin.flow.component.checkbox.Checkbox;
+import com.vaadin.flow.component.datepicker.DatePicker;
+import com.vaadin.flow.component.dependency.Uses;
 import com.vaadin.flow.component.formlayout.FormLayout;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.grid.GridVariant;
 import com.vaadin.flow.component.html.Div;
+import com.vaadin.flow.component.icon.Icon;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.splitlayout.SplitLayout;
+import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.binder.BeanValidationBinder;
 import com.vaadin.flow.data.binder.ValidationException;
+import com.vaadin.flow.data.renderer.TemplateRenderer;
 import com.vaadin.flow.router.BeforeEnterEvent;
 import com.vaadin.flow.router.BeforeEnterObserver;
+import com.vaadin.flow.router.PageTitle;
+import com.vaadin.flow.router.Route;
 import com.vaadin.flow.spring.data.VaadinSpringDataHelpers;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.PageRequest;
-import com.vaadin.flow.router.Route;
-import com.vaadin.flow.router.PageTitle;
+import es.uca.iw.data.entity.SamplePerson;
+import es.uca.iw.data.service.SamplePersonService;
 import es.uca.iw.views.MainLayout;
-import com.vaadin.flow.component.icon.Icon;
-import com.vaadin.flow.component.dependency.Uses;
-import com.vaadin.flow.data.renderer.TemplateRenderer;
-import com.vaadin.flow.component.textfield.TextField;
-import com.vaadin.flow.component.checkbox.Checkbox;
-import com.vaadin.flow.component.datepicker.DatePicker;
 
-@PageTitle("Master-Detail")
+@PageTitle("Master-Detail @RolesAllowed(admin)")
 @Route(value = "master-detail/:samplePersonID?/:action?(edit)", layout = MainLayout.class)
 @Uses(Icon.class)
+@RolesAllowed("admin")
+@PermitAll
 public class MasterDetailView extends Div implements BeforeEnterObserver {
 
     private final String SAMPLEPERSON_ID = "samplePersonID";

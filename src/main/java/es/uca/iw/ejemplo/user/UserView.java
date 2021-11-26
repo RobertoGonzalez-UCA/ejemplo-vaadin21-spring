@@ -7,11 +7,13 @@ import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
+import com.vaadin.flow.server.auth.AnonymousAllowed;
 
 import es.uca.iw.views.MainLayout;
 
-@PageTitle("Activate User")
+@PageTitle("Activate User (@AnonymousAllowed)")
 @Route(value = "useractivation", layout = MainLayout.class)
+@AnonymousAllowed
 public class UserView extends HorizontalLayout {
 
 	private static final long serialVersionUID = 851217309689685413L;

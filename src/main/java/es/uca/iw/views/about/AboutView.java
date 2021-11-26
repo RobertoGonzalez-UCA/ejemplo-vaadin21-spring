@@ -1,5 +1,7 @@
 package es.uca.iw.views.about;
 
+import javax.annotation.security.PermitAll;
+
 import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.html.Paragraph;
@@ -8,8 +10,9 @@ import com.vaadin.flow.router.Route;
 import com.vaadin.flow.router.PageTitle;
 import es.uca.iw.views.MainLayout;
 
-@PageTitle("About")
+@PageTitle("About (@PermitAll)")
 @Route(value = "about", layout = MainLayout.class)
+@PermitAll
 public class AboutView extends VerticalLayout {
 
     public AboutView() {
