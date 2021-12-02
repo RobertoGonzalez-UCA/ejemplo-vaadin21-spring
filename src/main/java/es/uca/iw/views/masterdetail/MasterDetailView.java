@@ -42,7 +42,6 @@ import es.uca.iw.views.MainLayout;
 @Route(value = "master-detail/:samplePersonID?/:action?(edit)", layout = MainLayout.class)
 @Uses(Icon.class)
 @RolesAllowed("admin")
-@PermitAll
 public class MasterDetailView extends Div implements BeforeEnterObserver {
 
     private final String SAMPLEPERSON_ID = "samplePersonID";
