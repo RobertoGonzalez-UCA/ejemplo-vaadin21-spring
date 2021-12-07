@@ -34,6 +34,9 @@ public class SecurityConfig extends VaadinWebSecurityConfigurerAdapter {
     @Override
     public void configure(WebSecurity web) throws Exception {
         web.ignoring().antMatchers("/images/**"); 
+        
+        // IRR: Ojo! estamos exponiendo libremente todos los datos de todos los usuarios
+        web.ignoring().antMatchers("/api/Users/**"); 
         super.configure(web);
     }
 

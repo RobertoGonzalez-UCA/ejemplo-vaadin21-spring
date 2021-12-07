@@ -62,4 +62,8 @@ public class UserService implements UserDetailsService {
 		return repository.findByActiveTrue();
 	}
 
+	public Optional<User> findById(Integer id) {
+		return repository.findById(id);
+	}
+
 }
